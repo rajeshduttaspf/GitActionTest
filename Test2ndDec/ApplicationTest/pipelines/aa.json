@@ -1,0 +1,96 @@
+{
+  "name": "aa",
+  "uuid": "3130a515-478f-4d97-a341-b414951996d7",
+  "category": "",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/01-Branch/",
+      "name": "Branch Python Operator",
+      "description": "This node used to execute flow depends on return value from the previous task.",
+      "details": "",
+      "examples": "",
+      "type": "python",
+      "nodeClass": "fire.pipelineNodes.branchPythonOperator",
+      "x": "268px",
+      "y": "114px",
+      "fields": [
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "python",
+          "value": "\u0027\u0027\u0027\ndef branch_func(ti):\nxcom_value \u003d int(ti.xcom_pull(task_ids\u003d$task_id))",
+          "widget": "shellcommand",
+          "title": "Python",
+          "description": "Write Python Code here",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "name",
+          "value": "",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Name of the task in airflow dag and it should be unique in the dag.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "python_callable",
+          "value": "",
+          "widget": "textfield",
+          "title": "Python Callable",
+          "description": "Input name of defined function name in above editor",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "trigger_rule",
+          "description": "trigger_rule",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}
